@@ -1,3 +1,15 @@
+<script>
+import { SERVER_URI } from '../../env'
+
+export default {
+  computed: {
+    urlPDF() {
+      return `${SERVER_URI}/curriculo.pdf`
+    },
+  },
+}
+</script>
+
 <template>
   <div class="about">
     <v-row class="pa-10">
@@ -13,7 +25,7 @@
 
     <v-row>
       <v-col class="ml-15">
-        <v-btn href="http://localhost:8080/curriculo.pdf" target="_blank">
+        <v-btn :href="urlPDF" target="_blank">
           Download Curriculo em PDF
         </v-btn>
       </v-col>

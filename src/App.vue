@@ -13,8 +13,7 @@ export default {
   methods: {
     logout() {
       this.$store.commit('logout')
-      this.$router.push('/')
-      document.location.reload(true)
+      this.$router.push('/login-user')
     },
   },
 
