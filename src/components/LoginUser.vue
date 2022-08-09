@@ -32,6 +32,8 @@ export default {
     async logar() {
       const { email, password } = this.user
       this.$store.commit('login', { email, password })
+      this.$router.push('/')
+      document.location.reload(true)
     },
     createUser() {
       this.$router.push('/create-user')

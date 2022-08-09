@@ -28,7 +28,8 @@ export default new Vuex.Store({
     async login(state, { email, password }) {
       const response = await loginRequest({ email, password })
       cookie('token', response.data.token, 1)
-      document.location.reload(true)
+      //this.$router.push('/')
+      //document.location.reload(true)
     },
 
     async listPosts(state) {

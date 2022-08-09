@@ -44,11 +44,9 @@ router.beforeEach((to, from, next) => {
   const token = cookie('token') || null
 
   if (token && from.path === '/' && to.path === '/login-user') return next('/')
+
   if (!token && to.path === '/') return next('/login-user')
-
   if (!token && to.path === '/about') return next('/login-user')
-  if (!token && to.path === '/create-post') return next('/login-user')
-
   if (!token && to.path === '/create-post') return next('/login-user')
 
   return next()

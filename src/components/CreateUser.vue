@@ -34,7 +34,7 @@ export default {
     save() {
       const { name, email, password } = this.user
       this.$store.commit('createUser', { name, email, password })
-      this.$emit('setCreate', false)
+      this.$router.push('/login-user')
     },
   },
 }
@@ -70,8 +70,6 @@ export default {
       ></v-text-field>
     </v-form>
 
-    <v-btn :disabled="!formIsValid" color="primary" to="/" @click="save()"
-      >Save</v-btn
-    >
+    <v-btn :disabled="!formIsValid" color="primary" @click="save()">Save</v-btn>
   </div>
 </template>

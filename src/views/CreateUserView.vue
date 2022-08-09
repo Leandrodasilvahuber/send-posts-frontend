@@ -1,5 +1,5 @@
 <script>
-import CreateUser from '@/components/CreateUser.vue'
+import CreateUser from '@/components/CreateUser'
 
 export default {
   components: {
@@ -13,7 +13,7 @@ export default {
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
-          <create-user @setCreate="$emit('setCreate', false)"></create-user>
+          <create-user></create-user>
         </v-flex>
       </v-layout>
     </v-container>
