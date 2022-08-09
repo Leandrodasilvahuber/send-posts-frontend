@@ -34,7 +34,7 @@ export default {
     save() {
       const { name, email, password } = this.user
       this.$store.commit('createUser', { name, email, password })
-      this.$router.push('/login-user')
+      this.$router.push('/')
     },
   },
 }
