@@ -6,8 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve",
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev"
+    "start": "export NPM_CONFIG_PRODUCTION=false; && npm install --only=dev --dev && npm run serve"
   },
   "dependencies": {
     "@vue/cli-service": "~5.0.0",
@@ -21,7 +20,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-     "@vue/cli-service": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
