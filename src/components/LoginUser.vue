@@ -35,7 +35,7 @@ export default {
 
       setTimeout(() => {
         this.$router.push('/')
-      }, 4000)
+      }, 2000)
     },
 
     createUser() {

@@ -22,6 +22,7 @@ export default {
     save() {
       const { title, message } = this.post
       this.$store.commit('createPost', { title, message })
+      this.$store.commit('listPosts')
       this.$router.push('/')
     },
   },
