@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "export NPM_CONFIG_PRODUCTION=false && npm install --only=dev --dev && npm run serve"
+    "start": "export NPM_CONFIG_PRODUCTION=false && npm install --include=dev && npm run serve"
   },
   "dependencies": {
     "@vue/cli-service": "~5.0.0",
