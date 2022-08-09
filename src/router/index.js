@@ -48,6 +48,7 @@ router.beforeEach((to, from, next) => {
 
   if (!token && to.path === '/about') return next('/login-user')
   if (!token && to.path === '/create-post') return next('/login-user')
+
   if (!token && to.path === '/create-post') return next('/login-user')
 
   return next()
