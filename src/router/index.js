@@ -1,29 +1,56 @@
+import cookie from 'cookiejs'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import CreateUserView from '../views/CreateUserView.vue'
+import LoginUserView from '../views/LoginUserView.vue'
+import AboutView from '../views/AboutView.vue'
+import ListPostsView from '../views/ListPostsView'
+import CreatePostView from '../views/CreatePostView'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    component: ListPostsView,
   },
   {
+    path: '/login-user',
+    component: LoginUserView,
+  },
+
+  {
+    path: '/create-post',
+    component: CreatePostView,
+  },
+  {
+    path: '/create-user',
+    component: CreateUserView,
+  },
+
+  {
     path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    component: AboutView,
+  },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+})
+
+router.beforeEach((to, from, next) => {
+  const token = cookie('token') || null
+
+  if (token && from.path === '/' && to.path === '/login-user') return next('/')
+  if (!token && to.path === '/') return next('/login-user')
+
+  if (!token && to.path === '/about') return next('/login-user')
+  if (!token && to.path === '/create-post') return next('/login-user')
+  if (!token && to.path === '/create-post') return next('/login-user')
+
+  return next()
 })
 
 export default router
