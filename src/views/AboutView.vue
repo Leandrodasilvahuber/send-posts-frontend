@@ -1,10 +1,10 @@
 <script>
-import { SERVER_URI } from '../../env'
+import { LOCAL_URI } from '../../env'
 
 export default {
   computed: {
     urlPDF() {
-      return `${SERVER_URI}curriculo.pdf`
+      return `${LOCAL_URI}curriculo.pdf`
     },
   },
 }
