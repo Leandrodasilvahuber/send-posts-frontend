@@ -4,7 +4,7 @@ import { SERVER_URI } from '../../env'
 export default {
   computed: {
     urlPDF() {
-      return `${SERVER_URI}/curriculo.pdf`
+      return `${SERVER_URI}curriculo.pdf`
     },
   },
 }
