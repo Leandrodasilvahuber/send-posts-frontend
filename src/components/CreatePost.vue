@@ -23,6 +23,7 @@ export default {
       const { title, message } = this.post
       this.$store.commit('createPost', { title, message })
 
+      //qqq
       setTimeout(() => {
         this.$store.commit('listPosts')
         this.$router.push('/')
