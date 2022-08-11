@@ -1,23 +1,23 @@
-import cookie from 'cookiejs'
+import { setToken, setError } from '../cookies/cookies'
 
 export default (connection) => {
   connection.interceptors.response.use(
     function (response) {
-      cookie('error', null)
+      setError(null)
       return response
     },
 
     function (error) {
       const message = error.response.data.message
       failedAuthenticateToken(message)
-      cookie('error', message, 1)
+      setError(message)
       return Promise.reject(error)
     }
   )
 
   function failedAuthenticateToken(message) {
     if (message == 'Failed to authenticate token.') {
-      cookie('token', null)
+      setToken(null)
       document.location.reload(true)
     }
   }

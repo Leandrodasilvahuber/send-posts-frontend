@@ -3,11 +3,13 @@ export default {
   mounted() {
     this.$store.commit('listPosts')
   },
+
   computed: {
     posts() {
       return this.$store.getters.posts
     },
   },
+
   methods: {
     deletePost(postId) {
       this.$store.commit('deletePost', postId)

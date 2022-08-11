@@ -1,4 +1,3 @@
-import cookie from 'cookiejs'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CreateUserView from '../views/CreateUserView.vue'
@@ -6,6 +5,7 @@ import LoginUserView from '../views/LoginUserView.vue'
 import AboutView from '../views/AboutView.vue'
 import ListPostsView from '../views/ListPostsView'
 import CreatePostView from '../views/CreatePostView'
+import { getToken } from '../plugins/cookies/cookies'
 
 Vue.use(VueRouter)
 
@@ -41,7 +41,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const token = cookie('token') || null
+  const token = getToken()
 
   if (token && from.path === '/' && to.path === '/login-user') return next('/')
 

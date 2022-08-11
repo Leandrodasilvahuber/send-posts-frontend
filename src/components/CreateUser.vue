@@ -1,6 +1,12 @@
 <script>
 export default {
   data: () => ({
+    user: {
+      name: null,
+      password: null,
+      email: null,
+    },
+
     rules: {
       name: [(value) => !!value || 'Required.'],
       password: [
@@ -15,12 +21,6 @@ export default {
           return pattern.test(value) || 'Invalid e-mail.'
         },
       ],
-    },
-
-    user: {
-      name: null,
-      password: null,
-      email: null,
     },
   }),
 
@@ -69,7 +69,6 @@ export default {
         required
       ></v-text-field>
     </v-form>
-
     <v-btn :disabled="!formIsValid" color="primary" @click="save()">Save</v-btn>
   </div>
 </template>

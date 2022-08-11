@@ -5,7 +5,7 @@ import listPostsRequest from './ListPostsRequest'
 import createUserRequest from './CreateUserRequest'
 import createPostRequest from './CreatePostRequest'
 import deletePostRequest from './DeletePostRequest'
-import cookie from 'cookiejs'
+import { setToken } from '../plugins/cookies/cookies'
 
 Vue.use(Vuex)
 
@@ -22,12 +22,12 @@ export default new Vuex.Store({
 
   mutations: {
     async logout() {
-      cookie('token', null)
+      setToken(null)
     },
 
     async login(state, { email, password }) {
       const response = await loginRequest({ email, password })
-      cookie('token', response.data.token, 1)
+      setToken(response.data.token)
     },
 
     async listPosts(state) {

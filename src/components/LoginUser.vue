@@ -1,6 +1,13 @@
 <script>
+import { getError } from '../plugins/cookies/cookies'
+
 export default {
   data: () => ({
+    user: {
+      password: null,
+      email: null,
+    },
+
     rules: {
       password: [
         (value) => !!value || 'Required.',
@@ -14,11 +21,6 @@ export default {
           return pattern.test(value) || 'Invalid e-mail.'
         },
       ],
-    },
-
-    user: {
-      password: null,
-      email: null,
     },
   }),
 
@@ -34,7 +36,12 @@ export default {
       this.$store.commit('login', { email, password })
 
       setTimeout(() => {
-        this.$router.push('/')
+        this.$root.$emit('reload-cookies')
+        if (getError() === null) {
+          this.$router.push('/')
+        } else {
+          this.$router.push('/login-user')
+        }
       }, 4000)
     },
 

@@ -1,13 +1,19 @@
 <script>
 import ErrorAlert from './components/ErrorAlert'
+import { getError } from './plugins/cookies/cookies'
 
 export default {
   data: () => ({
     drawer: null,
+    error: null,
   }),
 
   components: {
     ErrorAlert,
+  },
+
+  mounted() {
+    this.$root.$on('reload-cookies', this.reloadCookies)
   },
 
   methods: {
@@ -15,10 +21,17 @@ export default {
       this.$store.commit('logout')
       this.$router.push('/login-user')
     },
+
+    reloadCookies() {
+      setTimeout(() => {
+        this.error = getError()
+      }, 4000)
+    },
   },
 
   computed: {
     showTemplate() {
+      this.reloadCookies()
       return this.$route.path === '/login-user' ||
         this.$route.path === '/create-user'
         ? false
@@ -76,7 +89,7 @@ export default {
     </v-main>
 
     <div class="fixed">
-      <error-alert></error-alert>
+      <error-alert :error="error"></error-alert>
     </div>
   </v-app>
 </template>

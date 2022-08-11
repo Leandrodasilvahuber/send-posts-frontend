@@ -1,6 +1,6 @@
 <script>
-import cookie from 'cookiejs'
 import ListPosts from '../components/ListPosts'
+import { getToken } from '../plugins/cookies/cookies'
 
 export default {
   components: {
@@ -8,7 +8,7 @@ export default {
   },
   computed: {
     login() {
-      return cookie('token') || null ? true : false
+      return getToken() ? true : false
     },
   },
 }

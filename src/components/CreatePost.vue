@@ -1,14 +1,14 @@
 <script>
 export default {
   data: () => ({
-    rules: {
-      title: [(value) => !!value || 'Required.'],
-      message: [(value) => !!value || 'Required.'],
-    },
-
     post: {
       title: null,
       message: null,
+    },
+
+    rules: {
+      title: [(value) => !!value || 'Required.'],
+      message: [(value) => !!value || 'Required.'],
     },
   }),
 
@@ -48,7 +48,6 @@ export default {
         :rules="rules.message"
         required
       ></v-text-field>
-
       <v-btn :disabled="!formIsValid" color="primary" @click="save()"
         >Save</v-btn
       >

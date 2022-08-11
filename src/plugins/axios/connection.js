@@ -1,8 +1,8 @@
-import cookie from 'cookiejs'
+import { getToken } from '../cookies/cookies'
 
 export default (SERVER_URI) => {
   const axios = require('axios').default
-  const token = cookie('token') || null
+  const token = getToken()
 
   const router = axios.create({
     baseURL: SERVER_URI,
