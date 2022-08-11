@@ -49,7 +49,7 @@ export default {
           <v-flex d-flex child-flex class="fill-height">
             <v-btn to="/about" class="d-flex justify-start ml-2">
               <v-icon left>mdi-account-tie</v-icon>
-              Institucional
+              About
             </v-btn>
           </v-flex>
         </v-row>
@@ -57,7 +57,7 @@ export default {
           <v-flex d-flex child-flex class="fill-height">
             <v-btn to="/" class="d-flex justify-start ml-2">
               <v-icon left>mdi-text-search</v-icon>
-              Listar Posts
+              Posts
             </v-btn>
           </v-flex>
         </v-row>
@@ -65,7 +65,7 @@ export default {
           <v-flex d-flex child-flex class="fill-height">
             <v-btn to="/create-post" class="d-flex justify-start ml-2">
               <v-icon left>mdi-plus</v-icon>
-              Adicionar Post
+              Add Post
             </v-btn>
           </v-flex>
         </v-row>
@@ -73,14 +73,14 @@ export default {
           <v-flex d-flex child-flex class="fill-height">
             <v-btn @click="logout" class="d-flex justify-start ml-2">
               <v-icon left>mdi-exit-to-app</v-icon>
-              Sair
+              Log Out
             </v-btn>
           </v-flex>
         </v-row>
       </v-navigation-drawer>
       <v-app-bar app v-if="showTemplate">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Seja bem vindo!</v-toolbar-title>
+        <v-toolbar-title>Welcome to my humble app!</v-toolbar-title>
       </v-app-bar>
     </div>
 

@@ -13,7 +13,7 @@ export default {
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
-          <create-user></create-user>
+          <create-user class="mt-15"></create-user>
         </v-flex>
       </v-layout>
     </v-container>
